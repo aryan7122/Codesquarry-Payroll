@@ -1,0 +1,95 @@
+$primary-color: #F8F8F8; // Sidebar background
+$hover-color: #EDEBEBCC; // Hover effect
+$active-color: #EDEBEBCC; // Active menu
+$text-color: #000; // Text color
+$submenu-bg: #fff; // Submenu background
+
+.sidebar {
+    min-width: 220px;
+    height: 100vh;
+    position: fixed;
+    background: $primary-color;
+    color: $text-color;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    .logo-container {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        gap: 10px;
+        border-bottom: 1px solid #444;
+
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        h2 {
+            font-size: 22px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            .menu-item {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 15px 20px;
+                font-size: 16px;
+                color: $text-color;
+                text-decoration: none;
+                transition: 0.3s;
+                border-left: 4px solid transparent;
+
+                &:hover {
+                    background: $hover-color;
+                }
+
+                &.active {
+                    background: $active-color;
+                    color: #000;
+                    // border-left: 4px solid #fff;
+                }
+
+                svg {
+                    font-size: 18px;
+                }
+            }
+
+            .sub-menu {
+                list-style: none;
+                padding: 0;
+                background: $submenu-bg;
+
+                li {
+                    padding: 10px 30px;
+
+                    a {
+                        text-decoration: none;
+                        color: $text-color;
+                        transition: 0.3s;
+
+                        &:hover {
+                            // color: $active-color;
+                            
+                            border-bottom: 1px solid;
+                        }
+
+                        &.active-sub {
+                            // color: $active-color;
+                            border-bottom: 1px solid;
+                            // font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
