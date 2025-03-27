@@ -87,8 +87,6 @@ const SalaryComponents = () => {
         const queryParams = new URLSearchParams({
             type: activeTab,
             name: item.name || item.td1 || "",
-            calculation: item.calculation || item.td2 || "",
-            status: item.status || "",
         }).toString();
 
         navigate(`/employee/salary-components/edit?${queryParams}`);
@@ -162,7 +160,6 @@ const SalaryComponents = () => {
                                 <span>Page {currentPage} of {totalPages}</span>
                             </div>
                             <div>
-
                                 <button onClick={goToPrevPage} disabled={currentPage === 1}>Previous</button>
                                 <button onClick={goToNextPage} disabled={currentPage === totalPages}>Next</button>
                             </div>
