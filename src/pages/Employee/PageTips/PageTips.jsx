@@ -17,6 +17,35 @@ const PageTips = ({ title, content, onClose }) => {
                         <div key={index} className="content-section">
                             <h3>{item.heading}</h3>
                             <p>{item.text}</p>
+                            {/* {item.list && item.list.length > 0 && (
+                                <ul>
+                                    {item.list.map((li, i) => (
+                                        <li key={i}>{li}</li>
+
+                                    ))}
+                                </ul>
+                            )} */}
+                            {item.list && item.list.length > 0 && (
+                                <ul>
+                                    {item.list.map((li, i) => (
+                                        <li key={i}>
+                                            {typeof li === "string" ? (
+                                                li
+                                            ) : (
+                                                <>
+                                                    {li.text}
+                                                    <ul>
+                                                        {li.nestedList.map((nestedLi, j) => (
+                                                            <li key={j}>{nestedLi}</li>
+                                                        ))}
+                                                    </ul>
+                                                </>
+                                            )}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+
                         </div>
                     ))}
                 </div>

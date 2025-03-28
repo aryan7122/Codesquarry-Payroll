@@ -13,6 +13,14 @@ import ChildrenEducationAllowanceForm from "./EditPages/ChildrenEducationAllowan
 import TransportAllowanceForm from "./EditPages/TransportAllowanceForm";
 import TravellingAllowanceForm from "./EditPages/TravellingAllowanceForm";
 import LeaveEncashmentForm from "./EditPages/LeaveEncashmentForm";
+import GratuityForm from "./EditPages/GratuityForm";
+import OvertimeAllowanceForm from "./EditPages/OvertimeAllowanceForm";
+import NoticePayForm from "./EditPages/NoticePayForm";
+import HoldSalaryForm from "./EditPages/HoldSalaryForm";
+import NoticePayDeductionForm from "./EditPages/NoticePayDeductionForm";
+import WithheldSalaryForm from "./EditPages/WithheldSalaryForm";
+import VoluntaryProvidentFundForm from "./EditPages/VoluntaryProvidentFundForm";
+import FuelReimbursementForm from "./EditPages/FuelReimbursementForm";
 
 const EditSalaryComponent = () => {
     const [searchParams] = useSearchParams();
@@ -106,6 +114,46 @@ const EditSalaryComponent = () => {
                 {name === "Leave Encashment" && (
                     <>
                         <LeaveEncashmentForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
+                {name === "Gratuity" && (
+                    <>
+                        <GratuityForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
+                {name === "Overtime Allowance" && (
+                    <>
+                        <OvertimeAllowanceForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
+                {name === "Notice Pay" && (
+                    <>
+                        <NoticePayForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
+                {name === "Hold Salary" && (
+                    <>
+                        <HoldSalaryForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
+                {name === "Notice Pay Deduction" && (
+                    <>
+                        <NoticePayDeductionForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
+                {name === "Withheld Salary" && (
+                    <>
+                        <WithheldSalaryForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
+                {name === "Voluntary Provident Fund" && (
+                    <>
+                        <VoluntaryProvidentFundForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
+                {name === "Fuel Reimbursement" && (
+                    <>
+                        <FuelReimbursementForm showPopup={showPopup} setShowPopup={setShowPopup} />
                     </>
                 )}
 

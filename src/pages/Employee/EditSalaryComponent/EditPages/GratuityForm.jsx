@@ -3,13 +3,13 @@ import "../../AddNewSalaryComponent/EarningsSalaryForm.scss";
 import { CiCircleInfo } from "react-icons/ci";
 import PageTips from "../../PageTips/PageTips";
 
-const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
+const GratuityForm = ({ showPopup, setShowPopup }) => {
     const [formData, setFormData] = useState({
-        earningType: "Leave Encashment",
-        earningName: "Leave Encashment",
-        nameInPayslip: "Leave Encashment",
-        calculationType: "Flat Amount",
-        percentage: "",
+        earningType: "Gratuity",
+        earningName: "Gratuity",
+        nameInPayslip: "Gratuity",
+        // calculationType: "Flat Amount",
+        // percentage: "",
         isActive: false,
         taxable: true,
         taxableEarning: true,
@@ -35,26 +35,37 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
 
 
     const popupData = {
-        title: "Leave Encashment",
+        title: "Gratuity",
         content: [
             {
-                heading: "What is Leave Encashment?",
-                text: "Leave Encashment refers to the amount of money received in exchange for unused paid leave days. An employee can encash the accumulated leaves during their service or while leaving the job or at retirement."
+                heading: "What is Gratuity?",
+                text: "An employer can give gratuity to retiring or resigning employees for the services they provided during employment."
+            },
+            {
+                heading: "What are the conditions to receive gratuity?",
+                text: "A person is eligible to receive gratuity only if they have completed a minimum of 5 years of service with an organisation. However, it can be paid before the completion of five years if the employee dies or if they’ve become disabled due to accident or disease.",
+            },
+            {
+                heading: "How is it calculated?",
+                list: [
+                    'Employees covered under Gratuity Act: (15 x last drawn salary x tenure of working) divided by 26',
+                    'Employees not covered under Gratuity Act: (15 x last drawn salary x tenure of working) divided by 30',
+                ]
             },
             {
                 heading: "What are the tax exemption rules?",
-                text: "Yes, Travelling Allowance is completely exempt from income tax.",
                 list: [
-                    "Leave encashment received during service is fully taxable.",
-                    "Leave encashment received by Central or State Government employees is fully exempt from income tax.",
-                    "Leave encashment received by legal heirs of deceased employee is fully exempt from income tax.",
-                    "For non-government employees, tax exemption is provided for the lowest amount of the following:",
-                    "Amount notified by the Government - ₹3,00,000",
-                    "Actual leave encashment amount",
-                    "Average salary of last 10 months",
-                    "Salary per day * unutilised leave (considering maximum 30 days leave per year) for every year of completed service"
+                    'Gratuity received by Government employees is fully exempt from taxes.',
+                    'For non - government employees who come under Gratuity Act, 15 days salary as per last drawn salary is exempt from taxes.',
+                    {
+                        text: "For non-government employees not under Gratuity Act, the least of the following three amounts is exempt from taxes:",
+                        nestedList: [
+                            "Actual gratuity amount received by employee",
+                            "Half a month's salary for every year of service that the employee has completed with the employer"
+                        ]
+                    }
                 ]
-            }
+            },
 
 
         ]
@@ -116,27 +127,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                     </div>
                 </div>
 
-                <div className="form-row">
-                    <div className="form-group">
-                        <label>Calculation Type</label>
-                        <select name="calculationType" value={formData.calculationType} onChange={handleChange}>
-                            <option value="Flat Amount">Flat Amount</option>
-                            <option value="Percentage of CTC">Percentage of CTC</option>
-                            <option value="Fixed Amount">Fixed Amount</option>
-                        </select>
-                    </div>
-
-                    <div className="form-group">
-                        <label>Amount</label>
-                        <input
-                            type="number"
-                            name="percentage"
-                            placeholder="Enter Amount"
-                            value={formData.percentage}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
+              
                 <div className="form-row">
                     <div className="form-group">
                         <div className="checkBox">
@@ -162,7 +153,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                     name="esi"
                                     checked={formData.esi}
                                     onChange={handleChange}
-                                    // disabled
+                                // disabled
                                 />
                                 <label>Make this earning a part of the employee’s salary structure</label>
                             </div>
@@ -181,7 +172,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                 </div>
                                 <p className="label_p">The income tax amount will be divided equally and deducted every month across the financial year.</p>
                             </div>
-                            
+
                         </div>
                         <div className="right">
 
@@ -200,7 +191,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                         <label>Consider for EPF Contribution</label>
                                     </div>
                                 </div>
-                              
+
                             </div>
                             <div className="checkbox-container_2" >
                                 <div className="checkbox_label">
@@ -215,7 +206,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                         <label>Consider for ESI Contribution</label>
                                     </div>
                                 </div>
-                              
+
                             </div>
 
                             <div className="checkbox-container">
@@ -243,4 +234,4 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
     );
 };
 
-export default LeaveEncashmentForm;
+export default GratuityForm;

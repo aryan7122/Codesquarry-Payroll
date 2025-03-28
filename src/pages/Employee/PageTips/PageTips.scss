@@ -12,6 +12,8 @@
 }
 
 .popup-box {
+   
+    
     margin-top: 65px;
     background: #fff;
     padding: 30px;
@@ -21,6 +23,7 @@
     width: 90%;
     animation: fadeIn 0.4s ease;
 }
+
 
 .popup-header {
     display: flex;
@@ -47,21 +50,41 @@
 }
 
 .popup-content {
+    overflow-y: scroll;
+        max-height: 70vh;
     .content-section {
         margin-bottom: 20px;
 
         h3 {
-            font-size: 18px;
             font-weight: 600;
-            color: #333;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: -1%;
         }
 
         p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 20px;
+            letter-spacing: -1%;
+        }
+        ul{
+            margin-left: 30px;
+            color: #000;
+            opacity: 1;
+            margin-top: 5px;
+            li{
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 20px;
+                    letter-spacing: -1%;
+                    color: #000;
+            }
         }
     }
+}
+.popup-content::-webkit-scrollbar {
+    display: none;
 }
 
 // Animation effect

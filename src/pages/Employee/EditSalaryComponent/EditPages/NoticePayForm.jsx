@@ -3,13 +3,13 @@ import "../../AddNewSalaryComponent/EarningsSalaryForm.scss";
 import { CiCircleInfo } from "react-icons/ci";
 import PageTips from "../../PageTips/PageTips";
 
-const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
+const NoticePayForm = ({ showPopup, setShowPopup }) => {
     const [formData, setFormData] = useState({
-        earningType: "Leave Encashment",
-        earningName: "Leave Encashment",
-        nameInPayslip: "Leave Encashment",
-        calculationType: "Flat Amount",
-        percentage: "",
+        earningType: "Notice Pay",
+        earningName: "Notice Pay",
+        nameInPayslip: "Notice Pay",
+        // calculationType: "Flat Amount",
+        // percentage: "",
         isActive: false,
         taxable: true,
         taxableEarning: true,
@@ -35,28 +35,16 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
 
 
     const popupData = {
-        title: "Leave Encashment",
+        title: "Notice Pay",
         content: [
             {
-                heading: "What is Leave Encashment?",
-                text: "Leave Encashment refers to the amount of money received in exchange for unused paid leave days. An employee can encash the accumulated leaves during their service or while leaving the job or at retirement."
+                heading: "What is Notice Pay?",
+                text: "When an employee is exited, they are usually given a notice period of one month. If the employer wants the employee to quit immediately, an amount equal to one month's salary must be paid to the employee as notice pay."
             },
             {
-                heading: "What are the tax exemption rules?",
-                text: "Yes, Travelling Allowance is completely exempt from income tax.",
-                list: [
-                    "Leave encashment received during service is fully taxable.",
-                    "Leave encashment received by Central or State Government employees is fully exempt from income tax.",
-                    "Leave encashment received by legal heirs of deceased employee is fully exempt from income tax.",
-                    "For non-government employees, tax exemption is provided for the lowest amount of the following:",
-                    "Amount notified by the Government - ₹3,00,000",
-                    "Actual leave encashment amount",
-                    "Average salary of last 10 months",
-                    "Salary per day * unutilised leave (considering maximum 30 days leave per year) for every year of completed service"
-                ]
-            }
-
-
+                heading: "Is Notice Pay subject to income tax?",
+                text: "Yes, any payment made by your employer under your contract of employment will be taxable as earnings. This includes any pay received during the notice period or notice pay received as a lump sum.",
+            },
         ]
     };
 
@@ -116,27 +104,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                     </div>
                 </div>
 
-                <div className="form-row">
-                    <div className="form-group">
-                        <label>Calculation Type</label>
-                        <select name="calculationType" value={formData.calculationType} onChange={handleChange}>
-                            <option value="Flat Amount">Flat Amount</option>
-                            <option value="Percentage of CTC">Percentage of CTC</option>
-                            <option value="Fixed Amount">Fixed Amount</option>
-                        </select>
-                    </div>
-
-                    <div className="form-group">
-                        <label>Amount</label>
-                        <input
-                            type="number"
-                            name="percentage"
-                            placeholder="Enter Amount"
-                            value={formData.percentage}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
+              
                 <div className="form-row">
                     <div className="form-group">
                         <div className="checkBox">
@@ -162,7 +130,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                     name="esi"
                                     checked={formData.esi}
                                     onChange={handleChange}
-                                    // disabled
+                                disabled
                                 />
                                 <label>Make this earning a part of the employee’s salary structure</label>
                             </div>
@@ -181,7 +149,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                 </div>
                                 <p className="label_p">The income tax amount will be divided equally and deducted every month across the financial year.</p>
                             </div>
-                            
+
                         </div>
                         <div className="right">
 
@@ -194,13 +162,13 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                         name="taxableEarning"
                                         checked={formData.taxableEarning}
                                         onChange={handleChange}
-                                        disabled
+                                        // disabled
                                     />
                                     <div className="">
                                         <label>Consider for EPF Contribution</label>
                                     </div>
                                 </div>
-                              
+
                             </div>
                             <div className="checkbox-container_2" >
                                 <div className="checkbox_label">
@@ -215,7 +183,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                         <label>Consider for ESI Contribution</label>
                                     </div>
                                 </div>
-                              
+
                             </div>
 
                             <div className="checkbox-container">
@@ -243,4 +211,4 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
     );
 };
 
-export default LeaveEncashmentForm;
+export default NoticePayForm;

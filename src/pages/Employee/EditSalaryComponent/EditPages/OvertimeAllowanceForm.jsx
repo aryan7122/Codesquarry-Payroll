@@ -3,13 +3,13 @@ import "../../AddNewSalaryComponent/EarningsSalaryForm.scss";
 import { CiCircleInfo } from "react-icons/ci";
 import PageTips from "../../PageTips/PageTips";
 
-const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
+const OvertimeAllowanceForm = ({ showPopup, setShowPopup }) => {
     const [formData, setFormData] = useState({
-        earningType: "Leave Encashment",
-        earningName: "Leave Encashment",
-        nameInPayslip: "Leave Encashment",
-        calculationType: "Flat Amount",
-        percentage: "",
+        earningType: "Overtime Allowance",
+        earningName: "Overtime Allowance",
+        nameInPayslip: "Overtime Allowance",
+        // calculationType: "Flat Amount",
+        // percentage: "",
         isActive: false,
         taxable: true,
         taxableEarning: true,
@@ -35,28 +35,16 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
 
 
     const popupData = {
-        title: "Leave Encashment",
+        title: "Overtime Allowance",
         content: [
             {
-                heading: "What is Leave Encashment?",
-                text: "Leave Encashment refers to the amount of money received in exchange for unused paid leave days. An employee can encash the accumulated leaves during their service or while leaving the job or at retirement."
+                heading: "What is Overtime Allowance?",
+                text: "Overtime Allowance is a compensation provided to employees when their pre-authorised work exceeds the regular work hours"
             },
             {
-                heading: "What are the tax exemption rules?",
-                text: "Yes, Travelling Allowance is completely exempt from income tax.",
-                list: [
-                    "Leave encashment received during service is fully taxable.",
-                    "Leave encashment received by Central or State Government employees is fully exempt from income tax.",
-                    "Leave encashment received by legal heirs of deceased employee is fully exempt from income tax.",
-                    "For non-government employees, tax exemption is provided for the lowest amount of the following:",
-                    "Amount notified by the Government - ₹3,00,000",
-                    "Actual leave encashment amount",
-                    "Average salary of last 10 months",
-                    "Salary per day * unutilised leave (considering maximum 30 days leave per year) for every year of completed service"
-                ]
-            }
-
-
+                heading: "Is it exempt from Income Tax?",
+                text: "No, Overtime Allowance is fully taxable",
+            },
         ]
     };
 
@@ -116,27 +104,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                     </div>
                 </div>
 
-                <div className="form-row">
-                    <div className="form-group">
-                        <label>Calculation Type</label>
-                        <select name="calculationType" value={formData.calculationType} onChange={handleChange}>
-                            <option value="Flat Amount">Flat Amount</option>
-                            <option value="Percentage of CTC">Percentage of CTC</option>
-                            <option value="Fixed Amount">Fixed Amount</option>
-                        </select>
-                    </div>
-
-                    <div className="form-group">
-                        <label>Amount</label>
-                        <input
-                            type="number"
-                            name="percentage"
-                            placeholder="Enter Amount"
-                            value={formData.percentage}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
+              
                 <div className="form-row">
                     <div className="form-group">
                         <div className="checkBox">
@@ -162,7 +130,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                     name="esi"
                                     checked={formData.esi}
                                     onChange={handleChange}
-                                    // disabled
+                                // disabled
                                 />
                                 <label>Make this earning a part of the employee’s salary structure</label>
                             </div>
@@ -181,7 +149,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                 </div>
                                 <p className="label_p">The income tax amount will be divided equally and deducted every month across the financial year.</p>
                             </div>
-                            
+
                         </div>
                         <div className="right">
 
@@ -200,7 +168,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                         <label>Consider for EPF Contribution</label>
                                     </div>
                                 </div>
-                              
+
                             </div>
                             <div className="checkbox-container_2" >
                                 <div className="checkbox_label">
@@ -215,7 +183,7 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
                                         <label>Consider for ESI Contribution</label>
                                     </div>
                                 </div>
-                              
+
                             </div>
 
                             <div className="checkbox-container">
@@ -243,4 +211,4 @@ const LeaveEncashmentForm = ({ showPopup, setShowPopup }) => {
     );
 };
 
-export default LeaveEncashmentForm;
+export default OvertimeAllowanceForm;
