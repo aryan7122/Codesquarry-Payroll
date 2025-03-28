@@ -10,6 +10,9 @@ import FixedAllowanceSalaryForm from "./EditPages/FixedAllowanceSalaryForm";
 import BonusForm from "./EditPages/BonusForm";
 import CommissionForm from "./EditPages/CommissionForm";
 import ChildrenEducationAllowanceForm from "./EditPages/ChildrenEducationAllowanceForm";
+import TransportAllowanceForm from "./EditPages/TransportAllowanceForm";
+import TravellingAllowanceForm from "./EditPages/TravellingAllowanceForm";
+import LeaveEncashmentForm from "./EditPages/LeaveEncashmentForm";
 
 const EditSalaryComponent = () => {
     const [searchParams] = useSearchParams();
@@ -33,8 +36,8 @@ const EditSalaryComponent = () => {
                         type === "Earnings" ? "Edit Earning" :
                             type === "Deductions" ? "Edit Deduction" :
                                 type === "Benefits" ? "Edit Benefit" :
-                                    "Edit Reimbursement" 
-                    } - {name}
+                                    "Edit Reimbursement"
+                    }  -  {name}
                 </h2>
                 <div className="right_">
                     <div className="tip" onClick={() => setShowPopup(true)}>
@@ -90,8 +93,23 @@ const EditSalaryComponent = () => {
                         <ChildrenEducationAllowanceForm showPopup={showPopup} setShowPopup={setShowPopup} />
                     </>
                 )}
+                {name === "Transport Allowance" && (
+                    <>
+                        <TransportAllowanceForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
+                {name === "Travelling Allowance" && (
+                    <>
+                        <TravellingAllowanceForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
+                {name === "Leave Encashment" && (
+                    <>
+                        <LeaveEncashmentForm showPopup={showPopup} setShowPopup={setShowPopup} />
+                    </>
+                )}
 
-                
+
 
                 {/* Buttons */}
                 <div className="actions">
