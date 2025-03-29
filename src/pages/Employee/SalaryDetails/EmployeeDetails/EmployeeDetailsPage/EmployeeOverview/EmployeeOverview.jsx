@@ -32,8 +32,8 @@ const EmployeeOverview = () => {
     const employee = empDetail[0];
 
     return (
-        <div className="employee-container">
-            <div className="sidebar">
+        <div className="employee-container2">
+            <div className="sidebar2">
                 <div className="profile">
                     <img src="https://via.placeholder.com/80" alt="profile" />
                     <h2>{employee.name} ({employee.id})</h2>
@@ -51,7 +51,7 @@ const EmployeeOverview = () => {
                 </div>
                 <button className="edit-btn">Edit Profile</button>
             </div>
-            <div className="main-content">
+            <div className="main-content2">
                 <div className="section">
                     <h3>Personal Information</h3>
                     <p><strong>Date of Birth:</strong> {employee.dob}</p>
