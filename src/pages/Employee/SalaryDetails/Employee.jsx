@@ -106,12 +106,12 @@ const Employee = () => {
 
 
     const handleRowClickNewAdd = () => {
-        navigate(`/employee/add-new?=add-salary-details`);
+        console.log("123");
+        navigate(`/employee/add-salary-details`);
     };
     const handleRowClickDetail = (urls) => {
         navigate(`/employee/employee-detail?id=${urls}`);
     };
-
 
     return (
         <div className="container">
@@ -126,7 +126,7 @@ const Employee = () => {
                     <p>Keep track of all employees and their details</p>
                 </div>
                 <div className="right" >
-                    <button className="add-btn" onClick={() => handleRowClickNewAdd}>  Add salary details </button>
+                    <button className="add-btn" onClick={() => handleRowClickNewAdd()}>Add Salary Details</button>
 
                     <div className="dataTypeView"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                         <path d="M9 5L21 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
