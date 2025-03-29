@@ -1,6 +1,6 @@
 import React from 'react';
 import './EmployeeOverview.scss';
-
+import UserAvatar from '../../../../../../util/UserAvatar/UserAvatar'
 const empDetail = [
     {
         id: 'emp-001',
@@ -28,6 +28,12 @@ const empDetail = [
     }
 ];
 
+const user = {
+    name: "Aryan",
+    isActive: false,
+    // image: "",
+};
+
 const EmployeeOverview = () => {
     const employee = empDetail[0];
 
@@ -35,7 +41,8 @@ const EmployeeOverview = () => {
         <div className="employee-container2">
             <div className="sidebar2">
                 <div className="profile">
-                    <img src="https://via.placeholder.com/80" alt="profile" />
+                    <UserAvatar name={user?.name} size={54} isActive={user.isActive} />
+
                     <h2>{employee.name} ({employee.id})</h2>
                     <p>{employee.designation}</p>
                 </div>
