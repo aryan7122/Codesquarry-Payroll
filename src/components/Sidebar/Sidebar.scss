@@ -95,6 +95,10 @@ $submenu-bg: #fff; // Submenu background
             text-decoration: none;
             color: $text-color;
             transition: 0.3s;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 100%;
+              letter-spacing: -0.4px;
 
             &:hover {
               // color: $active-color;
