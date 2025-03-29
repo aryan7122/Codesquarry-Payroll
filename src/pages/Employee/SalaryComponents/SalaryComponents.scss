@@ -1,10 +1,11 @@
-.salary-container {
-  padding: 20px;
+.salary-container-SalaryComponents {
+  // padding: 20px;
   background: #fff;
   //   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   .header {
-    // border: 1px solid red;
     display: flex;
+    padding: 10px;
+    background: #F8F8F8;
     width: 100%;
     align-content: center;
     justify-content: space-between;
@@ -16,6 +17,7 @@
       line-height: 23.05px;
       letter-spacing: -1%;
       color: #2A2A2A;
+      font-weight: 500;
     }
     button {
       cursor: pointer;
@@ -30,6 +32,7 @@
   .tableData {
     border: 1px solid #e9e4e4;
     border-radius: 10px;
+    margin: 20px;
     .tabs {
       display: flex;
       gap: 10px;

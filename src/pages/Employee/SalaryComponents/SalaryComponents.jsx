@@ -99,7 +99,7 @@ const SalaryComponents = () => {
 
 
     return (
-        <div className="salary-container">
+        <div className="salary-container-SalaryComponents">
             <div className="header">
                 <h1>Salary Components</h1>
                 <button className="add-btn" onClick={() => handleRowClickNewAdd(activeTab)}> Add New {activeTab}</button>
