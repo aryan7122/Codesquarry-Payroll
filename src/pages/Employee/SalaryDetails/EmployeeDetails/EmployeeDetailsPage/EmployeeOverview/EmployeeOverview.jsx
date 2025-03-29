@@ -49,7 +49,7 @@ const EmployeeOverview = () => {
                     <p><strong>Gender:</strong> {employee.gender}</p>
                     <p><strong>Work location:</strong> {employee.location}</p>
                 </div>
-                <button className="edit-btn">Edit Profile</button>
+                <button className="edit-btn_">Edit Profile</button>
             </div>
             <div className="main-content2">
                 <div className="section">

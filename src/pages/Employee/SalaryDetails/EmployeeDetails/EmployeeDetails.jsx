@@ -3,6 +3,7 @@ import "./EmployeeDetails.scss";
 import { FaEllipsisV } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import EmployeeOverview from "./EmployeeDetailsPage/EmployeeOverview/EmployeeOverview";
+import SalaryDetails from "./EmployeeDetailsPage/SalaryDetails/SalaryDetails";
 
 const tabs = ["Overview", "SalaryDetails", "Investments", "PayslipsForms"];
 
@@ -108,7 +109,7 @@ const EmployeeDetails = () => {
     };
 
     return (
-        <div className="salary-container">
+        <div className="emp_container_detail">
             {/* <button className="add-btn" onClick={() => handleRowClickNewAdd(activeTab)}> Add New {activeTab}</button> */}
             <div className="header">
                 <div className="left">
@@ -168,13 +169,14 @@ const EmployeeDetails = () => {
                 </div>
 
                 <div className="table">
-                    {tabs.map((tab) => (
                         <>
-                            {tab === 'Overview' &&
+                            {activeTab === 'Overview' &&
                                 <EmployeeOverview />
                             }
+                            {activeTab === 'SalaryDetails' &&
+                                <SalaryDetails />
+                            }
                         </>
-                    ))}
                 </div>
             </div>
         </div>
