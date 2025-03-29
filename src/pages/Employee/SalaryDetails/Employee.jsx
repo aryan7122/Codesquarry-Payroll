@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./SalaryDetails.scss";
+import "./Employee.scss";
 import { FaFilter, FaArrowUp, FaArrowDown, FaTimes } from "react-icons/fa";
 import CustomDropdown from "../../../util/CustomDropdown/CustomDropdown";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +26,7 @@ const departments = ["Development", "Software Engineering", "Quality Assurance",
 const designations = ["Developer", "Engineer", "QA Tester", "Manager"];
 const statuses = ["Active", "Inactive", "Terminated"];
 
-const SalaryDetails = () => {
+const Employee = () => {
     const [data, setData] = useState(initialData);
     const [filters, setFilters] = useState({ id: "", department: "All", designation: "All", status: "All" });
     const [sortOrder, setSortOrder] = useState("asc");
@@ -108,15 +108,15 @@ const SalaryDetails = () => {
     const handleRowClickNewAdd = () => {
         navigate(`/employee/add-new?=add-salary-details`);
     };
+    const handleRowClickDetail = (urls) => {
+        navigate(`/employee/employee-detail?id=${urls}`);
+    };
 
 
     return (
         <div className="container">
             <div className="header">
-
                 <div className="left">
-
-
                     <div className="left_title">
                         <h1>
                             All Employee list
@@ -224,7 +224,22 @@ const SalaryDetails = () => {
                         </button>
 
                         <button className="sort-btn" onClick={handleSort}>
-                            Created on {sortOrder === "asc" ? <FaArrowDown /> : <FaArrowUp />}
+                            {sortOrder === "asc" ?
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                    <path d="M3 9L14 9.00008" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M3 15H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M3 3H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M18.5 21V9M18.5 21C17.7998 21 16.4915 19.0057 16 18.5M18.5 21C19.2002 21 20.5085 19.0057 21 18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                :
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                    <path d="M3 15L14 14.9999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M3 9H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M3 21H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M18.5 3V15M18.5 3C17.7998 3 16.4915 4.9943 16 5.5M18.5 3C19.2002 3 20.5085 4.9943 21 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            }
+                            Created on
                         </button>
                     </div>
 
@@ -245,12 +260,12 @@ const SalaryDetails = () => {
                         <tbody>
                             {currentItems.map((item) => (
                                 <tr key={item.id}>
-                                    <td>{item.id}</td>
-                                    <td>{item.name}</td>
-                                    <td>{item.email}</td>
-                                    <td>{item.phone}</td>
-                                    <td>{item.department}</td>
-                                    <td>{item.date}</td>
+                                    <td onClick={() => handleRowClickDetail(item.id)}>{item.id}</td>
+                                    <td onClick={() => handleRowClickDetail(item.id)}>{item.name}</td>
+                                    <td onClick={() => handleRowClickDetail(item.id)}>{item.email}</td>
+                                    <td onClick={() => handleRowClickDetail(item.id)}>{item.phone}</td>
+                                    <td onClick={() => handleRowClickDetail(item.id)}>{item.department}</td>
+                                    <td onClick={() => handleRowClickDetail(item.id)}>{item.date}</td>
                                     <td>
                                         <span className={`status ${item.status.toLowerCase()}`}>{item.status}</span>
                                     </td>
@@ -275,5 +290,5 @@ const SalaryDetails = () => {
     );
 };
 
-export default SalaryDetails;
+export default Employee;
 // 

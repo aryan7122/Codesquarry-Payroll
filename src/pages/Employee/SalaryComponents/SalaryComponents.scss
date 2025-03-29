@@ -37,8 +37,9 @@
       padding: 10px 10px 0px 10px;
       margin-bottom: -11px;
       //   margin-bottom: 15px;
-
+      
       button {
+        color: #2A2A2A;
         padding: 10px 15px;
         border: none;
         background: transparent;
@@ -52,6 +53,7 @@
         &.active {
           //   background: #007bff;
           border-bottom: 1px solid #000;
+          
           color: #015094;
         }
       }
