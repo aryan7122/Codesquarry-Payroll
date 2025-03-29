@@ -7,8 +7,9 @@ import Home from "./pages/Home/Home";
 import SalaryComponents from "./pages/Employee/SalaryComponents/SalaryComponents";
 import EditSalaryComponent from "./pages/Employee/EditSalaryComponent/EditSalaryComponent";
 import AddNewSalaryComponent from "./pages/Employee/AddNewSalaryComponent/AddNewSalaryComponent";
-import SalaryDetails from "./pages/Employee/SalaryDetails/SalaryDetails";
 import AddSalaryDetails from "./pages/Employee/SalaryDetails/AddSalaryDetails";
+import Employee from "./pages/Employee/SalaryDetails/Employee";
+import EmployeeDetails from "./pages/Employee/SalaryDetails/EmployeeDetails/EmployeeDetails";
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/employee/salary-components" element={<SalaryComponents />} />
-          <Route path="/employee/salary-details" element={<SalaryDetails />} />
+          <Route path="/employee/employee-list" element={<Employee />} />
+          <Route path="/employee/employee-detail" element={<EmployeeDetails />} />
           <Route path="/employee/salary-components/edit" element={<EditSalaryComponent />} />
           <Route path="/employee/salary-components/add-new" element={<AddNewSalaryComponent />} />
           <Route path="/employee/add-salary-details" element={<AddSalaryDetails />} />
