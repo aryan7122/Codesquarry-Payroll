@@ -1,6 +1,6 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState } from "react";
-import "../AddNewSalaryComponent/AddNewSalaryComponent.scss"; // Import SCSS file
+import "./AddSalaryDetails.scss"; // Import SCSS file
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { RiLightbulbFlashLine } from "react-icons/ri";
 

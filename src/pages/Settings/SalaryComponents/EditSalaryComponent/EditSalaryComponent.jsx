@@ -52,7 +52,7 @@ const EditSalaryComponent = () => {
                         <RiLightbulbFlashLine />
                         <p>Page Tips</p>
                     </div>
-                    <button className="close" onClick={() => navigate("/employee/salary-components")}>
+                    <button className="close" onClick={() => navigate("/settings/salary-components")}>
                         <IoMdCloseCircleOutline />
                     </button>
                 </div>
