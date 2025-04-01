@@ -1,19 +1,19 @@
 .employee-container2 {
-    display: flex;
-    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
     color: #333;
     background: #f5f5f5;
     padding: 20px;
+    .sidebar2 {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin-right: 20px;
+    }
 }
 
-.sidebar2 {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    margin-right: 20px;
-}
 
 .profile {
     text-align: center;
