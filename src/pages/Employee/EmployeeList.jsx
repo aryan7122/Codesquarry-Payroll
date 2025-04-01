@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Employee.scss";
 import { FaFilter, FaArrowUp, FaArrowDown, FaTimes } from "react-icons/fa";
-import CustomDropdown from "../../../util/CustomDropdown/CustomDropdown";
+import CustomDropdown from "../../util/CustomDropdown/CustomDropdown";
 import { useNavigate } from "react-router-dom";
 
 const initialData = [

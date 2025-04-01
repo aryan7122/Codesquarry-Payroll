@@ -29,10 +29,10 @@ const menuItems = [
             <path d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z" stroke="currentColor" stroke-width="1.5" />
         </svg>,
         link: "/employee",
-        subPages: ["Employee List", "Salary Components", "Attendance", "Leaves"],
+        subPages: [],
     },
     {
-        title: "Pay Runs",
+        title: "Pay Slip",
         icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
             <path d="M7 11H6C2.69067 11 2 11.6907 2 15V18C2 21.3093 2.69067 22 6 22H18C21.3093 22 22 21.3093 22 18V15C22 12.7889 21.6917 11.7468 20.5 11.2987" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M12 18L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -51,7 +51,10 @@ const menuItems = [
             <path d="M6 17H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
         </svg>,
         link: "/approvals",
-        subPages: ["Reimbursements", "Proof Of Investments", "Salary Revision"],
+        subPages: [{ label: 'Reimbursements', path: '/reimbursements' },
+        { label: 'Proof Of Investments', path: '/proof-of-investments' },
+        { label: 'Salary Revision', path: '/salary-revision' },
+        ],
     },
     {
         title: "Form 16",
@@ -70,19 +73,15 @@ const menuItems = [
             <path d="M15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12Z" stroke="currentColor" stroke-width="1.5" />
         </svg>,
         link: "/settings",
-        subPages: ["Profile", "Security", "Notifications"],
+        subPages: [{ label: 'Organization Profile', path: '/organization Profile' },
+        { label: 'Statutory Components', path: '/statutory-components' },
+        { label: 'Salary Components', path: '/salary-components' },
+        ],
     },
-
-
 ];
 const menuItems2 = [
-
-   
-
 ];
 const menuItems3 = [
-
-  
 ];
 
 const Sidebar = () => {
@@ -105,33 +104,44 @@ const Sidebar = () => {
             <ul >
                 {menuItems.map((item, index) => (
                     <li key={index} className="li_0">
-                        <div
-                            // to={item.link}
-                            className={`menu-item ${location.pathname.includes(item.link) ? "active" : ""
+                        {item.subPages.length > 0 ?
+                            <div className={`menu-item ${location.pathname.includes(item.link) ? "active" : ""
                                 }`}
-                            onClick={() => toggleMenu(index)}
-                        >
-                            <div className="title_">
-                                {item.icon}
-                                <span>{item.title}</span>
-                           </div>
-                            {item.subPages.length > 0 &&
-                                (openMenu === index ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-                                    <path d="M17.9998 15C17.9998 15 13.5809 9.00001 11.9998 9C10.4187 8.99999 5.99985 15 5.99985 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg> : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-                                    <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>)}
-                        </div>
-
+                                onClick={() => toggleMenu(index)}>
+                                <div className="title_">
+                                    {item.icon}
+                                    <span>{item.title}</span>
+                                </div>
+                                {item.subPages.length > 0 &&
+                                    (openMenu === index ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                        <path d="M17.9998 15C17.9998 15 13.5809 9.00001 11.9998 9C10.4187 8.99999 5.99985 15 5.99985 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg> : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                        <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>)}
+                            </div >
+                            :
+                            <NavLink
+                                to={item.link}
+                                className={`menu-item ${location.pathname.includes(item.link) ? "active" : ""
+                                    }`}
+                                onClick={() => toggleMenu(index)}
+                            >
+                                <div className="title_">
+                                    {item.icon}
+                                    <span>{item.title}</span>
+                                </div>
+                            </NavLink>
+                        }
                         {item.subPages.length > 0 && openMenu === index && (
-                            <ul className="sub-menu ">
+                            <ul className="sub-menu">
                                 {item.subPages.map((sub, i) => (
                                     <li key={i}>
                                         <NavLink
-                                            to={`${item.link}/${sub.toLowerCase().replace(/ /g, "-")}`}
+                                            // to={sub.path}
+                                            to={`${item.link}/${sub.label.toLowerCase().replace(/ /g, "-")}`}
                                             className={({ isActive }) => (isActive ? "active-sub" : "")}
                                         >
-                                            {sub}
+                                            {sub.label}
                                         </NavLink>
                                     </li>
                                 ))}
@@ -140,8 +150,6 @@ const Sidebar = () => {
                     </li>
                 ))}
             </ul>
-
-
         </div>
     );
 };

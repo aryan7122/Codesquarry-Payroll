@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import "./SalaryComponents.scss";
+import "./EmployeeDetails.scss";
 import { FaEllipsisV } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import EmployeeOverview from "./EmployeeDetailsPage/EmployeeOverview/EmployeeOverview";
+import SalaryDetails from "./EmployeeDetailsPage/SalaryDetails/SalaryDetails";
+import EmployeeOverview2 from "./EmployeeDetailsPage/EmployeeOverview/EmployeeOverview2";
 
-const tabs = ["Earnings", "Deductions", "Benefits", "Reimbursements"];
+const tabs = ["Overview", "SalaryDetails", "Investments", "PayslipsForms"];
 
 const tableData = {
-    Earnings: {
+    Overview: {
         headers: ["Name", "Earning Type", "Calculation Type", "Consider for EPF", "Consider for ESI", "Status", "Action"],
         rows: [
             { name: "Basic", type: "Basic", calculation: "Fixed; 50% of CTC", epf: "Yes", esi: "Yes", status: "Active", action: ["Active", "Inactive"] },
@@ -25,20 +28,20 @@ const tableData = {
             { name: "Hold Salary", type: "Hold Salary", calculation: "Variable; Flat Amount", epf: "No", esi: "No", status: "Active", action: ["Active", "Inactive"] }
         ]
     },
-    Deductions: {
+    SalaryDetails: {
         headers: ["Name", "Deduction Type", "Deduction Frequency", "Status", "Actions"],
         rows: [
             { td1: "Notice Pay Deduction", td2: "Notice Pay Deduction", td3: "One time", status: "Inactive", action: ['Active', 'Inactive'] },
             { td1: "Withheld Salary", td2: "Withheld Salary", td3: "One time", status: "Active", action: ['Active', 'Inactive'] },
         ]
     },
-    Benefits: {
+    Investments: {
         headers: ["Name", "Benefit Type", "Benefit Frequency", "Status", "Action"],
         rows: [
             { td1: "Voluntary Provident Fund", td2: "Voluntary Provident Fund", td3: "Recurring", status: "Active", action: ['Active', 'Inactive'] },
         ]
     },
-    Reimbursements: {
+    PayslipsForms: {
         headers: ["Name", "Reimbursement Type", "Maximum Reimbursable Amount", "Status", "Action"],
         rows: [
             { td1: "Fuel Reimbursement", td2: "Fuel Reimbursement", td3: "0 per month", status: "Inactive", action: ['Active', 'Inactive'] },
@@ -46,8 +49,8 @@ const tableData = {
     },
 };
 
-const SalaryComponents = () => {
-    const [activeTab, setActiveTab] = useState("Earnings");
+const EmployeeDetails = () => {
+    const [activeTab, setActiveTab] = useState("Overview");
     const [dropdownOpen, setDropdownOpen] = useState(null);
     const [statusData, setStatusData] = useState(tableData);
     const navigate = useNavigate();
@@ -97,78 +100,86 @@ const SalaryComponents = () => {
     };
 
 
+    const [isRotating, setIsRotating] = useState(false);
+    const handleReload = async () => {
+        setIsRotating(true);  // Start rotation
+        // await fetchData(); // Call API to fetch data
+        setTimeout(() => {
+            setIsRotating(false);  // Stop rotation after fetching
+        }, 2000);
+    };
 
     return (
-        <div className="salary-container-SalaryComponents">
+        <div className="emp_container_detail">
+            {/* <button className="add-btn" onClick={() => handleRowClickNewAdd(activeTab)}> Add New {activeTab}</button> */}
             <div className="header">
-                <h1>Salary Components</h1>
-                <button className="add-btn" onClick={() => handleRowClickNewAdd(activeTab)}> Add New {activeTab}</button>
+                <div className="left">
+                    <div className="left_title">
+                        <h1>
+                            All Employee list
+                        </h1>
+                        <span className="length">22 total</span>
+                    </div>
+                    <p></p>
+                </div>
+                <div className="right" >
+                    <button className="add-btn" onClick={() => handleRowClickNewAdd}>  Add  </button>
+                    <div
+                        className="reload_data"
+                        onClick={handleReload}
+                    >
+                        {!isRotating ?
+                            <svg className={` ${isRotating ? "rotating" : ""}`}
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                <path d="M15.1667 0.999756L15.7646 2.11753C16.1689 2.87322 16.371 3.25107 16.2374 3.41289C16.1037 3.57471 15.6635 3.44402 14.7831 3.18264C13.9029 2.92131 12.9684 2.78071 12 2.78071C6.75329 2.78071 2.5 6.90822 2.5 11.9998C2.5 13.6789 2.96262 15.2533 3.77093 16.6093M8.83333 22.9998L8.23536 21.882C7.83108 21.1263 7.62894 20.7484 7.7626 20.5866C7.89627 20.4248 8.33649 20.5555 9.21689 20.8169C10.0971 21.0782 11.0316 21.2188 12 21.2188C17.2467 21.2188 21.5 17.0913 21.5 11.9998C21.5 10.3206 21.0374 8.74623 20.2291 7.39023" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            :
+                            <svg className={` ${isRotating ? "rotating" : ""}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                                <path d="M12 3V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M12 18V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M21 12L18 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M6 12L3 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M18.3635 5.63672L16.2422 7.75804" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M7.75804 16.2422L5.63672 18.3635" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M18.3635 18.3635L16.2422 16.2422" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M7.75804 7.75804L5.63672 5.63672" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                        }
+                    </div>
+                    <div className="action_">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                            <path d="M11.9959 12H12.0049" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.9998 12H18.0088" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M5.99981 12H6.00879" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
             </div>
             <div className="tableData">
                 <div className="tabs">
                     {tabs.map((tab) => (
                         <button key={tab} className={activeTab === tab ? "active" : ""} onClick={() => setActiveTab(tab)}>
-                            {tab}
+                            {tab === 'Overview' ? 'Overview' : ''}
+                            {tab === 'SalaryDetails' ? 'Salary Details' : ''}
+                            {tab === 'Investments' ? 'Investments' : ''}
+                            {tab === 'PayslipsForms' ? 'Payslips & Forms' : ''}
                         </button>
                     ))}
                 </div>
 
                 <div className="table">
-                    <table>
-                        <thead>
-                            <tr>
-                                {tableData[activeTab].headers.map((header, index) => (
-                                    <th key={index}>{header}</th>
-                                ))}
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {tableData[activeTab].rows.map((item, index) => (
-                                <tr key={index} >
-                                    {Object.entries(item).map(([key, value], i) => (
-                                        <td key={i}>
-                                            {key === "status" ? (
-                                                <span className={`status ${value.toLowerCase()}`}>{value}</span>
-                                            ) : key === "action" ? (
-                                                <div className="action-cell">
-                                                    <button className="action-button" onClick={() => toggleDropdown(index)}>
-                                                        <FaEllipsisV />
-                                                    </button>
-                                                    {dropdownOpen === index && (
-                                                        <div className="dropdown_menu_action">
-                                                            {value.map((action, i) => (
-                                                                <button key={i} onClick={() => handleStatusChange(index, action)} className="dropdown-item">{action}</button>
-                                                            ))}
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            ) : (
-                                                        <div onClick={() => handleRowClick(item)}>
-                                                    {value}
-                                                </div>
-                                            )}
-                                        </td>
-                                    ))}
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                    {totalPages > 1 && (
-                        <div className="pagination">
-                            <div>
-                                <span>Page {currentPage} of {totalPages}</span>
-                            </div>
-                            <div>
-                                <button onClick={goToPrevPage} disabled={currentPage === 1}>Previous</button>
-                                <button onClick={goToNextPage} disabled={currentPage === totalPages}>Next</button>
-                            </div>
-                        </div>
-                    )}
+                        <>
+                            {activeTab === 'Overview' &&
+                                <EmployeeOverview />
+                            }
+                            {activeTab === 'SalaryDetails' &&
+                                <SalaryDetails />
+                            }
+                        </>
                 </div>
             </div>
         </div>
     );
 };
 
-export default SalaryComponents;
+export default EmployeeDetails;

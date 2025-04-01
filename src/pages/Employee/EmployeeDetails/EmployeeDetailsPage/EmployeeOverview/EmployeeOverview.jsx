@@ -1,6 +1,7 @@
 import React from 'react';
 import './EmployeeOverview.scss';
-import UserAvatar from '../../../../../../util/UserAvatar/UserAvatar'
+import UserAvatar from '../../../../../util/UserAvatar/UserAvatar';
+
 const empDetail = [
     {
         id: 'emp-001',

@@ -1,28 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-
 import "./App.css";
 import Home from "./pages/Home/Home";
-import SalaryComponents from "./pages/Employee/SalaryComponents/SalaryComponents";
-import EditSalaryComponent from "./pages/Employee/EditSalaryComponent/EditSalaryComponent";
-import AddNewSalaryComponent from "./pages/Employee/AddNewSalaryComponent/AddNewSalaryComponent";
-import AddSalaryDetails from "./pages/Employee/SalaryDetails/AddSalaryDetails";
-import Employee from "./pages/Employee/SalaryDetails/Employee";
-import EmployeeDetails from "./pages/Employee/SalaryDetails/EmployeeDetails/EmployeeDetails";
+import Reimbursement from "./pages/Reimbursement/Reimbursement";
+import SalaryComponents from "./pages/Settings/SalaryComponents/SalaryComponents";
+import EmployeeList from "./pages/Employee/EmployeeList";
+import EmployeeDetails from "./pages/Employee/EmployeeDetails/EmployeeDetails";
+import EditSalaryComponent from "./pages/Settings/SalaryComponents/EditSalaryComponent/EditSalaryComponent";
+import AddNewSalaryComponent from "./pages/Settings/SalaryComponents/AddNewSalaryComponent/AddNewSalaryComponent";
+import AddSalaryDetails from "./pages/Employee/AddSalaryDetails";
+import Login from "./Views/Login";
+import { ProtectedRouteForUser } from "./AuthRoutes";
 
 const App = () => {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(() => JSON.parse(localStorage.getItem("isLoggedIn")) || false);
+
   return (
     <Router>
-      <Layout>
+      <Layout isLoggedIn={isLoggedIn}>
         <Routes>
+          <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/" element={<Home />} />
-          <Route path="/employee/salary-components" element={<SalaryComponents />} />
-          <Route path="/employee/employee-list" element={<Employee />} />
+          <Route path="/employee" element={<EmployeeList />} />
           <Route path="/employee/employee-detail" element={<EmployeeDetails />} />
-          <Route path="/employee/salary-components/edit" element={<EditSalaryComponent />} />
-          <Route path="/employee/salary-components/add-new" element={<AddNewSalaryComponent />} />
+          <Route path="/settings/salary-components" element={<SalaryComponents />} />
+          <Route path="/settings/salary-components/edit" element={<EditSalaryComponent />} />
+          <Route path="/settings/salary-components/add-new" element={<AddNewSalaryComponent />} />
           <Route path="/employee/add-salary-details" element={<AddSalaryDetails />} />
+          <Route path="/approvals/reimbursements" element={<Reimbursement />} />
         </Routes>
       </Layout>
     </Router>

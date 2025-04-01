@@ -1,10 +1,8 @@
 .salary-form {
-  margin: 20px auto;
+  margin: 0px auto 20px auto;
   background: #fff;
   padding: 30px;
   border-radius: 8px;
-
-  
 
   .form-group {
     margin-bottom: 10px;
@@ -13,10 +11,11 @@
       display: block;
       font-weight: 600;
       margin-bottom: 5px;
-            font-weight: 500;
-            font-size: 15px;
-            line-height: 20px;
-            letter-spacing: -1%;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: -1%;
+
       span {
         color: red;
       }
@@ -27,9 +26,11 @@
     select {
       width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      // border: 1px solid #ccc;
+      border-radius: 8px;
       font-size: 14px;
+      background: #F3F3F3;
+      height: 40px;
     }
 
     input:disabled {
@@ -60,60 +61,69 @@
     padding-top: 20px;
     margin-top: 30px;
     gap: 10px;
-    h3{
-       margin-bottom: 10px;
+
+    h3 {
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 20px;
+      letter-spacing: -1%;
+    }
+
+    .itemCheck {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+
+      .left,
+      .right {
+        .checkbox-container {
+          margin: 10px 0;
+        }
+      }
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .checkbox-container_2 {
+      h4 {
         font-weight: 600;
-        font-size: 18px;
-        line-height: 20px;
-        letter-spacing: -1%;
-    }
-   .itemCheck{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    .left, .right{
-      .checkbox-container{
-        margin: 10px 0;
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: -3%;
+        color: #000000 !important;
       }
-    }
-   }
-    
-    .checkbox-container{
-    display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-    .checkbox-container_2{
-      h4{
-          font-weight: 600;
-          margin-bottom: 10px;
-          font-size: 16px;
-          line-height: 100%;
-          letter-spacing: -3%;
-          color: #000000 !important;
-      }
-      .left_radio2{
+
+      .left_radio2 {
 
         opacity: 0.7;
       }
-      .left_radio{
+
+      .left_radio {
         margin-left: 25px;
         opacity: 0.7;
 
       }
-        .checkbox_label{
-            display: flex;
-            gap: 5px;
-            margin-top: 6px;
-          }
-          .label_p{
-            margin-left: 26px;
-                font-weight: 300;
-                margin-top: 5px;
-                font-size: 14px;
-                line-height: 100%;
-                letter-spacing: -3%;
-        }
+
+      .checkbox_label {
+        display: flex;
+        gap: 5px;
+        margin-top: 6px;
+      }
+
+      .label_p {
+        margin-left: 26px;
+        font-weight: 300;
+        margin-top: 5px;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: -3%;
+      }
     }
 
   }
@@ -185,8 +195,8 @@ input[type="checkbox"] {
     // background: #b3b3b332; // grey color when disabled
     // border: none;
     // cursor: not-allowed;
- opacity: 0.4;
- cursor: not-allowed;
+    opacity: 0.4;
+    cursor: not-allowed;
     // &::after {
     //   content: "✔";
     //   color: #fff;

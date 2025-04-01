@@ -31,7 +31,7 @@ const AddNewSalaryComponent = () => {
                         <RiLightbulbFlashLine />
                         <p>Page Tips</p>
                     </div>
-                    <button className="close" onClick={() => navigate("/employee/salary-components")}>
+                    <button className="close" onClick={() => navigate("/settings/salary-components")}>
                         <IoMdCloseCircleOutline />
                     </button>
                 </div>
@@ -39,7 +39,6 @@ const AddNewSalaryComponent = () => {
             <div className="form-container">
                 {/* Common Fields */}
               
-
                 {/* Conditional Fields Based on Type */}
                 {type === "Earnings" && (
                     <>
@@ -64,8 +63,6 @@ const AddNewSalaryComponent = () => {
                         <ReimbursementSalaryForm/>
                     </>
                 )}
-
-                
 
                 {/* Buttons */}
                 <div className="actions">
