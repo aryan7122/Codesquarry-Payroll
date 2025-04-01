@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./EarningsSalaryForm.scss";
+import SelectDropDown from "../../../../util/CustomDropdown/SelectDropDown";
 
 const EarningsSalaryForm = () => {
     const [formData, setFormData] = useState({
@@ -35,11 +36,18 @@ const EarningsSalaryForm = () => {
                 <div className="form-row">
                     <div className="form-group">
                         <label>Earning Type <span>*</span></label>
-                        <select name="earningType" value={formData.earningType} onChange={handleChange}>
+                        {/* <select name="earningType" value={formData.earningType} onChange={handleChange}>
                             <option value="">Select earning type</option>
                             <option value="bonus">Bonus</option>
                             <option value="allowance">Allowance</option>
-                        </select>
+                        </select> */}
+
+                        <SelectDropDown
+                            label="Department"
+                            options={["Bonus", "Allowance"]}
+                            searchable={true}
+                            onSelect={(value) => handleChange("department", value)}
+                        />
                     </div>
                     <div className="form-group">
 
@@ -169,12 +177,12 @@ const EarningsSalaryForm = () => {
 
                         </div>
                     </div>
-                   
 
-                   
-                    
-                   
-                   
+
+
+
+
+
 
                 </div>
 

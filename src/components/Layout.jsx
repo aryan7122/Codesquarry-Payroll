@@ -1,18 +1,22 @@
 import React from "react";
-
 import "./Layout.scss";
 import Navbar from "./Navbar/Navbar";
 import Sidebar from "./Sidebar/Sidebar";
 
-const Layout = ({ children }) => {
+const Layout = ({ isLoggedIn, children }) => {
     return (
         <div className="layout">
             <Sidebar />
+            {isLoggedIn &&
+                <Sidebar />
+            }
             <div className="main-content">
                 <Navbar />
-                <div className="page-content">
+                {isLoggedIn &&
+                    <Navbar />
+                }
+                <div className={isLoggedIn ? `page-content` : 'page-content'}>
                     {children}
-                    {/* <div className="page-content">{children}</div> */}
                 </div>
             </div>
         </div>

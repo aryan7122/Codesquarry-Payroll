@@ -39,7 +39,6 @@ const AddNewSalaryComponent = () => {
             <div className="form-container">
                 {/* Common Fields */}
               
-
                 {/* Conditional Fields Based on Type */}
                 {type === "Earnings" && (
                     <>
@@ -64,8 +63,6 @@ const AddNewSalaryComponent = () => {
                         <ReimbursementSalaryForm/>
                     </>
                 )}
-
-                
 
                 {/* Buttons */}
                 <div className="actions">
